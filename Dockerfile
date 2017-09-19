@@ -15,6 +15,8 @@ RUN echo " </Directory>" >> /etc/httpd/sites/default.conf
 RUN echo "</VirtualHost>" >> /etc/httpd/sites/default.conf
 RUN chmod 555 /etc/httpd/sites/default.conf
 
+RUN chmod 777 /var/www/html
+
 RUN echo "#!/bin/sh" > /container-init
 RUN echo "rm -f /var/run/httpd/httpd.pid 2> /dev/null" >> /container-init
 RUN echo "exec httpd -DFOREGROUND" >> /container-init
